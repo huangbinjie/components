@@ -272,3 +272,61 @@ mainTab.addEventListener('select', () => {
 ### Events
 
 无
+
+# `QUserProfile`
+
+用户详情界面。
+
+```html
+<q-user-profile
+  avatar="/res/avatar.jpg"
+  nickname="bob"
+  sex="man"
+></q-user-profile>
+```
+
+### Attributes / Properties
+
+##### `avatar`
+
+`string`: 头像
+
+##### `nickname`
+
+`number`: 昵称
+
+#### `sex`
+
+`men | woman`: 性别
+
+#### `signature`
+
+`string`: 签名
+
+#### `remark`
+
+`string | undefined`: 备注。不填默认使用 `nickname`。
+
+### Events
+
+##### `send`
+
+发消息按钮点击之后触发
+
+```js
+const userProfile = document.createElement('q-user-profile')
+chatItem.addEventListener('send', () => {
+  // do
+})
+```
+
+##### `delete`
+
+删除好友按钮点击之后触发
+
+```js
+const userProfile = document.createElement('q-user-profile')
+chatItem.addEventListener('delete', () => {
+  // do
+})
+```
