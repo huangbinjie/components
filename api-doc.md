@@ -273,19 +273,22 @@ mainTab.addEventListener('select', () => {
 
 无
 
-# `QUserProfile`
-
-用户详情界面。
+# `QProfile`
 
 ```html
-<q-user-profile
+<q-profile
+  type="user"
   avatar="/res/avatar.jpg"
   nickname="bob"
   sex="man"
-></q-user-profile>
+></q-profile>
 ```
 
 ### Attributes / Properties
+
+#### `type`
+
+`user | room | undefined`: 指定是用户 profile 还是群的 profile，默认 `user`.
 
 ##### `avatar`
 
@@ -297,7 +300,7 @@ mainTab.addEventListener('select', () => {
 
 #### `sex`
 
-`men | woman`: 性别
+`men | woman | undefined`: 性别
 
 #### `signature`
 
@@ -314,7 +317,7 @@ mainTab.addEventListener('select', () => {
 发消息按钮点击之后触发
 
 ```js
-const userProfile = document.createElement('q-user-profile')
+const userProfile = document.createElement('q-profile')
 chatItem.addEventListener('send', () => {
   // do
 })
@@ -325,7 +328,7 @@ chatItem.addEventListener('send', () => {
 删除好友按钮点击之后触发
 
 ```js
-const userProfile = document.createElement('q-user-profile')
+const userProfile = document.createElement('q-profile')
 chatItem.addEventListener('delete', () => {
   // do
 })

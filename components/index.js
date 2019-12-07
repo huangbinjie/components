@@ -7,7 +7,7 @@ import './q-friend-list/index.js'
 import './q-chat-view/index.js'
 import './q-message-item/index.js'
 import './q-send-box/index.js'
-import './q-user-profile/index.js'
+import './q-profile/index.js'
 
 import './my-chat-list/index.js'
 import './my-friend-list/index.js'

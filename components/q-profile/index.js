@@ -1,6 +1,6 @@
 import { render } from '../utils.js'
 
-class QUserProfile extends HTMLElement {
+class QProfile extends HTMLElement {
   get nickname() {
     return this.getAttribute('nickname')
   }
@@ -41,8 +41,16 @@ class QUserProfile extends HTMLElement {
     return this.setAttribute('remark', value)
   }
 
+  get type() {
+    return this.getAttribute('type')
+  }
+
+  set type(value) {
+    return this.setAttribute('type', value)
+  }
+
   static get observedAttributes() {
-    return [ 'nickname', 'avatar', 'sex', 'signature', 'remark' ]
+    return [ 'nickname', 'avatar', 'sex', 'signature', 'remark', 'type' ]
   }
 
   udpate() {
@@ -69,10 +77,21 @@ class QUserProfile extends HTMLElement {
       this.querySelector('#sex').classList.remove('web_wechat_woman')
       this.querySelector('#sex').classList.add('web_wechat_woman')
     }
+
+    if (this.type === 'user') {
+      this.querySelector('#label').innerHTML = '备注: '
+      this.querySelector('#delete').innerHTML = '删除好友'
+    } else if (this.type === 'room') {
+      this.querySelector('#label').innerHTML = '群名: '
+      this.querySelector('#delete').innerHTML = '退出群'
+    } else {
+      this.querySelector('#label').innerHTML = '备注: '
+      this.querySelector('#delete').innerHTML = '删除好友'
+    }
   }
 
   async connectedCallback() {
-    await render(this, '/components/q-user-profile/index.html')
+    await render(this, '/components/q-profile/index.html')
     this.rendered = true
     this.udpate()
 
@@ -90,4 +109,4 @@ class QUserProfile extends HTMLElement {
   }
 }
 
-customElements.define('q-user-profile', QUserProfile)
+customElements.define('q-profile', QProfile)
